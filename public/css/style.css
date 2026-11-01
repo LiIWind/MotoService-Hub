@@ -74,6 +74,14 @@ a {
     color: inherit;
 }
 
+a:focus-visible,
+button:focus-visible,
+textarea:focus-visible,
+input:focus-visible {
+    outline: var(--border-thick) solid var(--color-focus);
+    outline-offset: var(--border-thick);
+}
+
 .visually-hidden {
     position: absolute;
     width: 1px;
@@ -131,6 +139,12 @@ a {
 .site-nav a {
     color: var(--color-muted);
     text-decoration: none;
+    transition: color var(--transition-fast);
+}
+
+.site-nav a:hover {
+    color: var(--color-ink);
+    text-decoration: underline;
 }
 
 .site-nav a[aria-current] {
@@ -142,6 +156,10 @@ a {
 .site-phone {
     font-weight: 600;
     text-decoration: none;
+}
+
+.site-phone:hover {
+    text-decoration: underline;
 }
 
 .site-footer {
@@ -201,6 +219,10 @@ a {
 .steps a {
     color: var(--color-ink);
     text-decoration: none;
+}
+
+.steps a:hover {
+    text-decoration: underline;
 }
 
 .reservation__form {
@@ -266,6 +288,11 @@ a {
 
 .text-link {
     font-weight: 600;
+    transition: color var(--transition-fast);
+}
+
+.text-link:hover {
+    color: var(--color-accent);
 }
 
 .note {
@@ -307,6 +334,7 @@ a {
     padding: var(--space-md);
     background: var(--color-ground);
     cursor: pointer;
+    transition: background-color var(--transition-fast);
 }
 
 .choice input {
@@ -338,6 +366,15 @@ a {
     color: var(--color-muted);
     font-size: var(--text-caption);
     white-space: nowrap;
+}
+
+.choice:hover {
+    background: var(--color-tile-hover);
+}
+
+.choice:has(input:focus-visible) {
+    outline: var(--border-thick) solid var(--color-focus);
+    outline-offset: var(--border-thick);
 }
 
 .choice:has(input:disabled) {
@@ -382,6 +419,11 @@ a {
     height: 10rem;
     padding: var(--space-lg);
     background: var(--color-ground);
+    transition: background-color var(--transition-fast);
+}
+
+.issue-field:hover {
+    background: var(--color-tile-hover);
 }
 
 .issue-field textarea {
@@ -441,6 +483,16 @@ a {
     background: var(--color-ground);
     font-weight: 600;
     cursor: pointer;
+    transition: background-color var(--transition-fast);
+}
+
+.upload:hover {
+    background: var(--color-tile-hover);
+}
+
+.upload:has(input:focus-visible) {
+    outline: var(--border-thick) solid var(--color-focus);
+    outline-offset: var(--border-thick);
 }
 
 .hint {
@@ -541,6 +593,11 @@ a {
     font: inherit;
     font-weight: 600;
     cursor: pointer;
+    transition: background-color var(--transition-fast);
+}
+
+.button:hover:not(:disabled) {
+    background: var(--color-accent-hover);
 }
 
 .button:disabled {
@@ -638,5 +695,11 @@ a {
 
     .site-footer {
         padding-inline: var(--space-lg);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        transition: none !important;
     }
 }
