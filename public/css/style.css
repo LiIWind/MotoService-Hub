@@ -293,6 +293,12 @@ a {
     grid-template-columns: repeat(auto-fill, minmax(5.125rem, 1fr));
 }
 
+@media (min-width: 81.25rem) {
+    .choices--slots {
+        grid-template-columns: repeat(10, minmax(0, 1fr));
+    }
+}
+
 .choice {
     position: relative;
     display: flex;
@@ -545,4 +551,92 @@ a {
     color: var(--color-on-ink-muted);
     font-size: var(--text-caption);
     line-height: var(--leading-text);
+}
+
+/* Mniejszy ekran: podsumowanie schodzi pod formularz */
+
+@media (max-width: 75rem) {
+    .reservation__form {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-areas:
+            "service vehicle"
+            "term term"
+            "issue photos"
+            "summary summary";
+    }
+
+    .reservation__title {
+        font-size: var(--text-price);
+    }
+}
+
+/* Telefon: jedna kolumna */
+
+@media (max-width: 40rem) {
+    .site-nav {
+        order: 3;
+        width: 100%;
+    }
+
+    .site-nav ul {
+        gap: var(--space-lg);
+    }
+
+    .site-header {
+        padding-inline: var(--space-lg);
+    }
+
+    .reservation__title {
+        padding: var(--space-2xl) var(--space-lg) var(--space-xl);
+        font-size: 2.5rem;
+    }
+
+    .steps ol {
+        padding: 0 var(--space-lg) var(--space-2xl);
+    }
+
+    .reservation__form {
+        grid-template-columns: minmax(0, 1fr);
+        grid-template-areas:
+            "service"
+            "vehicle"
+            "term"
+            "issue"
+            "photos"
+            "summary";
+    }
+
+    .card--service,
+    .card--vehicle,
+    .card--issue,
+    .card--photos {
+        min-height: 0;
+    }
+
+    .card__title {
+        font-size: var(--text-heading);
+    }
+
+    .choices--days,
+    .choices--slots {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .photo-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .photo {
+        white-space: normal;
+    }
+
+    .photo__image,
+    .upload {
+        width: 100%;
+    }
+
+    .site-footer {
+        padding-inline: var(--space-lg);
+    }
 }
