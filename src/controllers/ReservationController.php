@@ -10,17 +10,20 @@ final class ReservationController extends AppController
 
     public function index(): void
     {
+        $issueDescription = 'Piszczenie przy hamowaniu, szczególnie na mokrej nawierzchni. '
+            . 'Od wczoraj świeci się kontrolka ABS.';
+
         $this->render('reservation-form', [
             'pageTitle' => 'Rezerwacja wizyty',
             'heading' => 'Hamulce we wtorek, 3 listopada',
             'reservation' => $this->sampleReservation(),
             'days' => [
-                ['date' => '2026-11-02', 'label' => 'Pn 2', 'availability' => '3 wolne', 'selected' => false],
-                ['date' => '2026-11-03', 'label' => 'Wt 3', 'availability' => '4 wolne', 'selected' => true],
-                ['date' => '2026-11-04', 'label' => 'Śr 4', 'availability' => 'brak', 'selected' => false],
-                ['date' => '2026-11-05', 'label' => 'Cz 5', 'availability' => '6 wolnych', 'selected' => false],
-                ['date' => '2026-11-06', 'label' => 'Pt 6', 'availability' => '2 wolne', 'selected' => false],
-                ['date' => '2026-11-07', 'label' => 'Sob 7', 'availability' => '1 wolna', 'selected' => false],
+                ['date' => '2026-11-02', 'label' => 'Pn 2', 'availability' => '3 wolne', 'free' => true, 'selected' => false],
+                ['date' => '2026-11-03', 'label' => 'Wt 3', 'availability' => '4 wolne', 'free' => true, 'selected' => true],
+                ['date' => '2026-11-04', 'label' => 'Śr 4', 'availability' => 'brak', 'free' => false, 'selected' => false],
+                ['date' => '2026-11-05', 'label' => 'Cz 5', 'availability' => '6 wolnych', 'free' => true, 'selected' => false],
+                ['date' => '2026-11-06', 'label' => 'Pt 6', 'availability' => '2 wolne', 'free' => true, 'selected' => false],
+                ['date' => '2026-11-07', 'label' => 'Sob 7', 'availability' => '1 wolna', 'free' => true, 'selected' => false],
             ],
             'timeSlots' => [
                 ['time' => '7:00', 'status' => 'zajęte', 'free' => false, 'selected' => false],
@@ -35,11 +38,22 @@ final class ReservationController extends AppController
                 ['time' => '16:00', 'status' => 'zajęte', 'free' => false, 'selected' => false],
             ],
             'photos' => [
-                ['name' => 'IMG_4021.jpg', 'size' => '2,1 MB'],
-                ['name' => 'IMG_4022.jpg', 'size' => '1,8 MB'],
+                [
+                    'src' => '/images/issue-lift.jpg',
+                    'alt' => 'Zawieszenie auta na podnośniku',
+                    'name' => 'IMG_4021.jpg',
+                    'size' => '2,1 MB',
+                ],
+                [
+                    'src' => '/images/issue-mechanic.jpg',
+                    'alt' => 'Mechanik przy aucie na hali',
+                    'name' => 'IMG_4022.jpg',
+                    'size' => '1,8 MB',
+                ],
             ],
-            'issueDescription' => 'Piszczenie przy hamowaniu, szczególnie na mokrej nawierzchni. '
-                . 'Od wczoraj świeci się kontrolka ABS.',
+            'issueDescription' => $issueDescription,
+            'issueLength' => mb_strlen($issueDescription),
+            'activeNav' => 'board',
         ]);
     }
 
