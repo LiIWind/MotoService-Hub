@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= htmlspecialchars($pageTitle, ENT_QUOTES, 'UTF-8') ?></title>
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
     <header>
@@ -261,7 +262,7 @@
         </address>
         <p>Pn–Pt 7:00–18:00 · Sob 8:00–14:00</p>
         <p><small>© 2026 MotoService Hub</small></p>
-        <p><small>Zdjęcia: Smart1995 (CC BY 2.0), Fortepan / Lissák Tivadar (CC BY-SA 3.0), Igor123121 (CC BY 4.0), via Wikimedia Commons</small></p>
+        <p><small>Zdjęcia: Shixart1985 (CC BY 2.0), Fortepan / Lissák Tivadar (CC BY-SA 3.0), Igor123121 (CC BY 4.0), Wikimedia Commons</small></p>
         <a href="/reservation">Zarezerwuj termin</a>
     </footer>
 </body>
